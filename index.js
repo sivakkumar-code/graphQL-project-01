@@ -21,6 +21,15 @@ const resolvers = {
         },
         authors(){
             return db.authors;
+        },
+        review(parent, args, context){
+            return db.reviews.find((review)=> review.id === args.id);
+        },
+        game(parent, args, context){
+            return db.games.find((game)=> game.id === args.id)
+        },
+        author(parent, args, context){
+            return db.authors.find((author)=> author.id === args.id)
         }
     }
 }

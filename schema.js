@@ -26,6 +26,14 @@ type Query{
     games: [Game]
     game(id: ID!): Game
 }
+type Mutation{
+    deleteGame(id: ID!): [Game]
+    addGame(game: AddGameInput!): Game
+}
+input AddGameInput {
+    title: String!
+    platform: [String!]!
+}
 `;
 
 // most used data types in graph ql

@@ -59,6 +59,12 @@ const resolvers = {
             let game = {...args.game, id: Date.now()}
             db.games.push(game);
             return game
+        },
+        updateGame(parent, args, context){
+            let foundGame =  db.games.find((game)=>game.id === args.id);
+            if(!foundGame) return null;
+            foundGame = {...foundGame, ...args.edits};
+            return foundGame;
         }
     }
 }
